@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terence &amp; Janella Wedding</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BACKGROUND MUSIC -->
+  <audio id="music" autoplay loop preload="auto">
+    <source src="music/palagi.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+  </audio>
+
+  <div class="music">
+    <button type="button" id="musicButton" aria-label="Play background music">
+      ♪ Play Music
+    </button>
+  </div>
+
+  <!-- HERO / WEDDING INVITATION -->
+  <section class="hero" id="home">
+    <div class="hero-card">
+      <!-- Mobile portrait soft-edge prenup layer. Hidden on desktop/landscape. -->
+      <svg class="hero-prenup-soft" viewBox="0 0 1000 2000" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <filter id="heroEdgeBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="72" />
+          </filter>
+          <mask id="heroSoftArchMask" maskUnits="userSpaceOnUse" x="-150" y="-150" width="1300" height="2300">
+            <rect x="0" y="0" width="1000" height="2000" fill="black" />
+            <path
+              d="M72 290 Q500 -18 928 290 L928 1880 Q928 1940 868 1940 L132 1940 Q72 1940 72 1880 Z"
+              fill="white"
+              filter="url(#heroEdgeBlur)"
+            />
+          </mask>
+        </defs>
+
+        <image
+          href="images/hero-prenup.jpg"
+          xlink:href="images/hero-prenup.jpg"
+          x="0"
+          y="0"
+          width="1000"
+          height="2000"
+          preserveAspectRatio="xMidYMid slice"
+          mask="url(#heroSoftArchMask)"
+        />
+      </svg>
+
+      <div class="hero-content">
+        <div class="hero-invitation">
+          <p class="hero-family-message">YOU ARE INVITED TO OUR</p>
+
+          <p class="hero-wedding-title">Wedding</p>
+
+          <img
+            src="images/divider.jpg"
+            alt=""
+            class="hero-divider"
+            aria-hidden="true"
+          >
+
+          <h1 class="hero-couple-names" aria-label="Terence and Janella">
+            <span>Terence</span>
+            <span class="hero-ampersand">&amp;</span>
+            <span>Janella</span>
+          </h1>
+
+          <img
+            src="images/divider.png"
+            alt=""
+            class="hero-name-date-divider"
+            aria-hidden="true"
+          >
+
+          <p class="hero-date">DECEMBER 08, 2026</p>
+          <p class="hero-time">04:00 PM</p>
+
+          <p class="hero-venue-name">KEER Green Resort</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOVE STORY ALBUM -->
+  <section class="album" id="prenup-album">
+    <h2 class="section-title">A Glimpse of Our Love Story</h2>
+
+    <div class="album-carousel">
+      <button type="button" class="album-arrow album-prev" aria-label="Previous photo">❮</button>
+
+      <div class="album-track" id="albumTrack" tabindex="0" aria-label="Prenup photo album">
+        <div class="album-card active"><img src="images/prenup1.jpg" alt="Terence and Janella prenup photo 1" draggable="false"></div>
+        <div class="album-card"><img src="images/prenup2.jpg" alt="Terence and Janella prenup photo 2" draggable="false"></div>
+        <div class="album-card"><img src="images/prenup3.jpg" alt="Terence and Janella prenup photo 3" draggable="false"></div>
+        <div class="album-card"><img src="images/prenup4.jpg" alt="Terence and Janella prenup photo 4" draggable="false"></div>
+        <div class="album-card"><img src="images/prenup5.jpg" alt="Terence and Janella prenup photo 5" draggable="false"></div>
+        <div class="album-card"><img src="images/prenup6.jpg" alt="Terence and Janella prenup photo 6" draggable="false"></div>
+      </div>
+
+      <button type="button" class="album-arrow album-next" aria-label="Next photo">❯</button>
+    </div>
+
+    <p class="album-counter" id="albumCounter">1 / 6</p>
+    <p class="swipe-instruction">Swipe on mobile or click and drag on a laptop</p>
+  </section>
+
+  <!-- WEDDING INFORMATION -->
+  <section class="wedding-info-details" id="wedding-information">
+    <h2 class="section-title">Wedding Information</h2>
+
+    <div class="wedding-info-grid">
+      <article class="wedding-info-card">
+        <span class="wedding-info-icon" aria-hidden="true">❦</span>
+        <h3>Venue</h3>
+        <p>KEER Green Resort</p>
+      </article>
+
+      <article class="wedding-info-card">
+        <span class="wedding-info-icon" aria-hidden="true">⌖</span>
+        <h3>Address</h3>
+        <p>Purok 7 Farm, Sta. Monica,<br>Floridablanca, Pampanga</p>
+      </article>
+
+      <article class="wedding-info-card">
+        <span class="wedding-info-icon" aria-hidden="true">◷</span>
+        <h3>Time</h3>
+        <p>04:00 PM</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- WEDDING DAY SCHEDULE -->
+  <section class="schedule-section" id="wedding-schedule">
+    <h2 class="section-title">Wedding Day Schedule</h2>
+
+    <div class="schedule-countdown" aria-label="Countdown to the wedding">
+      <p class="countdown-heading">Until We Say “I Do”</p>
+
+      <div class="countdown-grid">
+        <div class="countdown-box">
+          <span class="countdown-number" id="countdownDays">000</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="countdownHours">00</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="countdownMinutes">00</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span class="countdown-number" id="countdownSeconds">00</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+
+      <p class="countdown-complete" id="countdownComplete" hidden>
+        Today is our wedding day!
+      </p>
+    </div>
+
+    <h3 class="schedule-proper-title">Schedule Proper</h3>
+
+    <div class="schedule">
+      <div class="schedule-card">
+        <div class="schedule-icon">💍</div>
+        <h3>04:00 PM</h3>
+        <p>Ceremony</p>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-icon">🍽</div>
+        <h3>06:00 PM</h3>
+        <p>Dinner</p>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-icon">🎵</div>
+        <h3>07:00 PM</h3>
+        <p>Party</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECEPTION VENUE MAP -->
+  <section>
+    <h2 class="section-title">Reception Venue Map</h2>
+
+    <iframe
+      title="Keer Green Resort Map"
+      loading="lazy"
+      src="https://maps.google.com/maps?q=Keer%20Green%20Resort&t=&z=14&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+  </section>
+
+  <!-- DRESS CODE -->
+  <section>
+    <h2 class="section-title">Dress Code</h2>
+
+    <p class="dress-description">
+      Women — Dress<br>
+      Men — Long Sleeves &amp; Slacks
+    </p>
+
+    <div class="palette" aria-label="Wedding color palette">
+      <div class="palette-color butter-cream">
+        <span>Butter Cream</span>
+      </div>
+      <div class="palette-color peach-petal">
+        <span>Peach Petal</span>
+      </div>
+      <div class="palette-color apricot-blossom">
+        <span>Apricot Blossom</span>
+      </div>
+      <div class="palette-color soft-sage">
+        <span>Soft Sage</span>
+      </div>
+    </div>
+
+    <div class="dress">
+      <div class="dress-group">
+        <h3>For Women</h3>
+        <div class="dress-images">
+          <img src="images/women1.jpg" alt="Women's dress sample 1" loading="lazy">
+          <img src="images/women2.jpg" alt="Women's dress sample 2" loading="lazy">
+          <img src="images/women3.jpg" alt="Women's dress sample 3" loading="lazy">
+          <img src="images/women4.jpg" alt="Women's dress sample 4" loading="lazy">
+        </div>
+      </div>
+
+      <div class="dress-group">
+        <h3>For Men</h3>
+        <div class="dress-images">
+          <img src="images/men1.jpg" alt="Men's attire sample 1" loading="lazy">
+          <img src="images/men2.jpg" alt="Men's attire sample 2" loading="lazy">
+          <img src="images/men3.jpg" alt="Men's attire sample 3" loading="lazy">
+          <img src="images/men4.jpg" alt="Men's attire sample 4" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP INVITATION SCREEN -->
+  <section id="wedding-info" class="rsvp-invite-section">
+    <div class="rsvp-invite-panel">
+      <p class="rsvp-confirm-heading">
+        <span>PLEASE CONFIRM</span>
+        <span>ATTENDANCE</span>
+      </p>
+
+      <h2 class="rsvp-display-title">RSVP</h2>
+
+      <img
+        src="images/divider.png"
+        alt=""
+        class="rsvp-floral-divider"
+        aria-hidden="true"
+      >
+
+      <p class="rsvp-invite-message">
+        We would be delighted to<br>
+        celebrate this special day with you.
+      </p>
+
+      <a class="rsvp-now-button" href="#rsvp">RSVP NOW</a>
+
+      <p class="rsvp-form-note">
+        Please complete the form below to let<br>
+        us know whether you can attend.
+      </p>
+
+      <p class="rsvp-thank-you">Thank you</p>
+      <span class="rsvp-heart" aria-hidden="true">♥</span>
+    </div>
+  </section>
+
+  <!-- GUEST BOOK -->
+  <section id="rsvp">
+    <h2 class="section-title">Guest Book</h2>
+    <p class="rsvp-message">Your presence would be the greatest gift we could receive!</p>
+
+    <div class="rsvp">
+      <form id="rsvpForm">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+        <label for="attendance">Will you attend?</label>
+        <select id="attendance" name="attendance" required>
+          <option value="">Select your response</option>
+          <option value="yes">Yes, I will attend</option>
+          <option value="no">Sorry, I cannot attend</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message for the couple"></textarea>
+
+        <button type="submit">Submit RSVP</button>
+      </form>
+
+      <img src="images/bouquet.png" alt="Wedding bouquet" loading="lazy">
+    </div>
+  </section>
+
+  <!-- FALLING FLOWER PETALS -->
+  <div class="petal-container" id="petalContainer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
