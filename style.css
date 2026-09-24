@@ -3386,3 +3386,50 @@ body::after{
   overflow:hidden !important;
   white-space:nowrap !important;
 }
+
+/* =========================================================
+   FINAL HERO TEXT — REFERENCE INVITATION COLOR / BLEND
+   Changes ONLY the hero text appearance.
+   All hero photo, arc, background, layout, sizing, spacing,
+   sections, RSVP, and responsive behavior remain unchanged.
+   ========================================================= */
+.hero-family-message,
+.hero-wedding-title,
+.hero-couple-names,
+.hero-ampersand,
+.hero-date,
+.hero-time,
+.hero-venue-name,
+.hero-invitation a{
+  color:rgba(103,44,46,.92) !important;
+  -webkit-text-stroke:0 transparent !important;
+  text-shadow:none !important;
+  mix-blend-mode:multiply;
+  text-rendering:optimizeLegibility;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Keep the small invitation line elegant like the reference. */
+.hero-family-message{
+  font-family:Georgia, "Times New Roman", serif !important;
+  font-weight:400 !important;
+}
+
+/* Keep the existing Wedding script font, only soften its color. */
+.hero-wedding-title{
+  font-weight:400 !important;
+}
+
+/* Keep the existing names layout and size; only refine the weight
+   so the burgundy text sits more naturally over the photograph. */
+.hero-couple-names,
+.hero-ampersand{
+  font-weight:400 !important;
+}
+
+/* Event details use the same muted wine tone as the reference. */
+.hero-date,
+.hero-time,
+.hero-venue-name{
+  font-weight:400 !important;
+}
