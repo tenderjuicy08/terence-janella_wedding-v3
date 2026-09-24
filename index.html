@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Terence &amp; Janella Wedding</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260924-hero-arc-2">
 </head>
 <body>
 
@@ -23,41 +23,12 @@
   <!-- HERO / WEDDING INVITATION -->
   <section class="hero" id="home">
     <div class="hero-card">
-      <!-- Mobile portrait soft-edge prenup layer. Hidden on desktop/landscape. -->
-      <svg class="hero-prenup-soft" viewBox="0 0 1000 2000" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-          <filter id="heroEdgeBlur" x="-24%" y="-24%" width="148%" height="148%">
-            <feGaussianBlur stdDeviation="88" />
-          </filter>
-          <mask id="heroSoftArchMask" maskUnits="userSpaceOnUse" x="-150" y="-150" width="1300" height="2300">
-            <rect x="0" y="0" width="1000" height="2000" fill="black" />
-            <path
-              d="M18 240 Q500 -36 982 240 L982 1968 Q982 1992 958 1992 L42 1992 Q18 1992 18 1968 Z"
-              fill="white"
-              filter="url(#heroEdgeBlur)"
-            />
-          </mask>
-        </defs>
-
-        <!-- Independent translucent arc layer. Its opacity is controlled in style.css. -->
-        <path
-          class="hero-arc-fill"
-          d="M18 240 Q500 -36 982 240 L982 1968 Q982 1992 958 1992 L42 1992 Q18 1992 18 1968 Z"
-          mask="url(#heroSoftArchMask)"
-        />
-
-        <image
-          class="hero-prenup-image"
-          href="images/hero-prenup.jpg"
-          xlink:href="images/hero-prenup.jpg"
-          x="-25"
-          y="-25"
-          width="1050"
-          height="2050"
-          preserveAspectRatio="xMidYMid slice"
-          mask="url(#heroSoftArchMask)"
-        />
-      </svg>
+      <!-- RESPONSIVE HERO PRENUP ARCH
+           Uses normal HTML/CSS instead of an SVG mask so it also works
+           reliably in Android Chrome and Messenger in-app browsers. -->
+      <div class="hero-prenup-arch" aria-hidden="true">
+        <div class="hero-prenup-photo"></div>
+      </div>
 
       <div class="hero-content">
         <div class="hero-invitation">
