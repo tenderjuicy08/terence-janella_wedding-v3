@@ -3449,121 +3449,272 @@ body::after{
 }
 
 /* =========================================================
-   FINAL RESPONSIVE HERO PRENUP FIX
-   Keeps all hero text sizes/spacing unchanged.
-   The prenup photo is allowed to FIT on phones instead of using
-   background-size: cover, which crops the couple on tall screens.
-   ========================================================= */
+   FINAL PORTRAIT HERO REVISION — 2026-09-24
+   This final override intentionally sits at the END of style.css.
 
-/* PORTRAIT PHONES */
+   Portrait phones now:
+   - restore the actual SVG hero arc / soft-edge prenup layer
+   - use the SAME typography format and spacing as landscape
+   - keep the desktop / landscape hero unchanged
+   ========================================================= */
 @media (max-width:600px) and (orientation:portrait){
-  .hero,
-  .hero-card,
-  .hero-content{
+
+  /* -----------------------------
+     HERO / ARC CONTAINER
+     ----------------------------- */
+  .hero{
     min-height:100svh !important;
+    height:auto !important;
+    padding:0 !important;
+    overflow:hidden !important;
   }
 
   .hero-card{
     position:relative !important;
+    isolation:isolate !important;
+    width:100% !important;
+    min-height:100svh !important;
+    height:auto !important;
     overflow:hidden !important;
+
     background:transparent !important;
     background-image:none !important;
-  }
-
-  /* Responsive prenup layer: show the complete photo on tall phones. */
-  .hero-card::before{
-    content:"" !important;
-    display:block !important;
-    position:absolute !important;
-    inset:0 !important;
-    z-index:1 !important;
-    pointer-events:none !important;
-
-    background-image:url("images/hero-prenup.jpg") !important;
-    background-repeat:no-repeat !important;
-    background-size:contain !important;
-    background-position:center 48% !important;
-
-    opacity:.90 !important;
     border-radius:0 !important;
+    box-shadow:none !important;
 
-    /* Keep the approved soft portrait edge. */
-    -webkit-mask-image:var(--hero-guide-mask-portrait) !important;
-    mask-image:var(--hero-guide-mask-portrait) !important;
-    -webkit-mask-size:100% 100% !important;
-    mask-size:100% 100% !important;
-    -webkit-mask-position:center !important;
-    mask-position:center !important;
-    -webkit-mask-repeat:no-repeat !important;
-    mask-repeat:no-repeat !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+
+    backdrop-filter:none !important;
+    -webkit-backdrop-filter:none !important;
   }
 
+  /* Disable the CSS pseudo-element prenup system on portrait.
+     The real SVG below contains the approved curved arch. */
+  .hero-card::before,
   .hero-card::after{
-    content:"" !important;
+    content:none !important;
+    display:none !important;
+  }
+
+  /* -----------------------------
+     RESTORE HERO ARC + PRENUP SVG
+     ----------------------------- */
+  .hero-prenup-soft{
     display:block !important;
     position:absolute !important;
     inset:0 !important;
+    left:0 !important;
+    top:0 !important;
+    width:100% !important;
+    height:100% !important;
     z-index:0 !important;
+    overflow:visible !important;
     pointer-events:none !important;
-    background:rgba(250,248,243,.20) !important;
     opacity:1 !important;
-
-    -webkit-mask-image:var(--hero-guide-mask-portrait) !important;
-    mask-image:var(--hero-guide-mask-portrait) !important;
-    -webkit-mask-size:100% 100% !important;
-    mask-size:100% 100% !important;
-    -webkit-mask-position:center !important;
-    mask-position:center !important;
-    -webkit-mask-repeat:no-repeat !important;
-    mask-repeat:no-repeat !important;
+    transform:none !important;
   }
 
-  /* Keep the invitation exactly above the image; no font-size changes. */
-  .hero-content,
+  /* Pale translucent arch beneath the photograph. */
+  .hero-prenup-soft .hero-arc-fill{
+    display:block !important;
+    fill:rgb(250,248,243) !important;
+    opacity:.34 !important;
+  }
+
+  /* Photograph inside the same curved mask. */
+  .hero-prenup-soft .hero-prenup-image{
+    display:block !important;
+    opacity:.88 !important;
+  }
+
+  /* -----------------------------
+     TEXT LAYOUT
+     Copy the LANDSCAPE / desktop stacking method.
+     Do not use the old portrait grid or space-between layout.
+     ----------------------------- */
+  .hero-content{
+    position:relative !important;
+    z-index:3 !important;
+    width:100% !important;
+    min-height:100svh !important;
+    height:auto !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+
+    padding:clamp(92px, 12svh, 118px) 18px 34px !important;
+    background:transparent !important;
+  }
+
   .hero-invitation{
     position:relative !important;
     z-index:3 !important;
+    width:100% !important;
+    max-width:460px !important;
+    min-height:0 !important;
+    height:auto !important;
+
+    display:block !important;
+    margin:0 auto !important;
+    padding:0 !important;
+
+    background:transparent !important;
+    background-image:none !important;
+    border:0 !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    text-align:center !important;
   }
 
-  .hero-prenup-soft{
-    display:none !important;
+  /* -----------------------------
+     YOU ARE INVITED TO OUR
+     Same format as landscape.
+     ----------------------------- */
+  .hero-family-message{
+    width:100% !important;
+    margin:0 0 17px !important;
+    padding-left:.52em !important;
+
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:12px !important;
+    font-weight:400 !important;
+    line-height:1.25 !important;
+    letter-spacing:4px !important;
+
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+
+  /* -----------------------------
+     WEDDING
+     Same script/font treatment as landscape.
+     ----------------------------- */
+  .hero-wedding-title{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+
+    font-family:"Edwardian Script ITC", "Bickham Script Pro 3", "Brush Script MT", "Segoe Script", cursive !important;
+    font-size:72px !important;
+    font-weight:400 !important;
+    font-style:italic !important;
+    line-height:.92 !important;
+
+    text-align:center !important;
+  }
+
+  /* Same divider size and spacing used by the landscape format. */
+  .hero-divider{
+    display:block !important;
+    width:min(275px, 60%) !important;
+    height:auto !important;
+    max-height:58px !important;
+    margin:30px auto 37px !important;
+    object-fit:contain !important;
+    mix-blend-mode:multiply !important;
+  }
+
+  /* -----------------------------
+     TERENCE & JANELLA
+     Same type format as landscape.
+     ----------------------------- */
+  .hero-couple-names{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:0 !important;
+
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:64px !important;
+    font-weight:400 !important;
+    line-height:.91 !important;
+    letter-spacing:-2px !important;
+
+    text-align:center !important;
+  }
+
+  .hero-couple-names > span{
+    display:block !important;
+    width:auto !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  .hero-ampersand{
+    margin:20px 0 22px !important;
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:.68em !important;
+    font-weight:400 !important;
+    font-style:normal !important;
+    line-height:.72 !important;
+  }
+
+  /* -----------------------------
+     FLORAL DIVIDER BELOW THE NAMES
+     Same size and spacing as landscape.
+     ----------------------------- */
+  .hero-name-date-divider{
+    display:block !important;
+    width:min(275px, 60%) !important;
+    height:auto !important;
+    max-height:58px !important;
+    margin:43px auto 22px !important;
+    object-fit:contain !important;
+    mix-blend-mode:multiply !important;
+  }
+
+  /* Event details stay hidden in the hero, but keep their reserved
+     space because they were intentionally moved to Wedding Information. */
+  .hero-detail-placeholder{
+    visibility:hidden !important;
+    pointer-events:none !important;
+    user-select:none !important;
   }
 }
 
-/* Very narrow / very tall phones: keep the full couple visible. */
-@media (max-width:430px) and (orientation:portrait){
-  .hero-card::before{
-    background-size:100% auto !important;
-    background-position:center 50% !important;
+/* Narrow portrait phones:
+   scale the COMPLETE invitation together instead of changing the
+   Wedding/name fonts independently. This preserves the landscape
+   typography relationship and spacing. */
+@media (max-width:380px) and (orientation:portrait){
+  .hero-content{
+    padding-top:84px !important;
+  }
+
+  .hero-invitation{
+    transform:scale(.92) !important;
+    transform-origin:top center !important;
   }
 }
 
-/* PHONE / SMALL-TABLET LANDSCAPE */
-@media (orientation:landscape) and (max-width:950px) and (max-height:600px){
-  .hero-card::before{
-    background-image:url("images/hero-prenup.jpg") !important;
-    background-repeat:no-repeat !important;
-    background-size:contain !important;
-    background-position:center center !important;
+/* Very short portrait viewports (browser UI consumes extra height):
+   keep the same text format by scaling the whole block as one unit. */
+@media (max-width:600px) and (orientation:portrait) and (max-height:700px){
+  .hero-content{
+    padding-top:72px !important;
+  }
 
-    -webkit-mask-image:var(--hero-guide-mask-landscape) !important;
-    mask-image:var(--hero-guide-mask-landscape) !important;
-    -webkit-mask-size:100% 100% !important;
-    mask-size:100% 100% !important;
-    -webkit-mask-position:center !important;
-    mask-position:center !important;
-    -webkit-mask-repeat:no-repeat !important;
-    mask-repeat:no-repeat !important;
+  .hero-invitation{
+    transform:scale(.88) !important;
+    transform-origin:top center !important;
   }
 }
 
-/* Fallback for browsers that do not expose svh correctly. */
-@supports not (height:100svh){
+/* Prefer the dynamic viewport height on modern mobile browsers. */
+@supports (height:100dvh){
   @media (max-width:600px) and (orientation:portrait){
     .hero,
     .hero-card,
     .hero-content{
-      min-height:100vh !important;
+      min-height:100dvh !important;
     }
   }
 }
