@@ -3433,3 +3433,68 @@ body::after{
 .hero-venue-name{
   font-weight:400 !important;
 }
+
+/* =========================================================
+   FINAL HERO TEXT SIZE / POSITION ADJUSTMENT
+   Reduces ONLY the Wedding title and the bride/groom names
+   and lifts the names slightly so they do not cover the hands
+   in the prenup photograph. Everything else remains unchanged.
+   ========================================================= */
+.hero-wedding-title{
+  font-size:clamp(50px, 4.6vw, 72px) !important;
+}
+
+.hero-couple-names{
+  font-size:clamp(40px, 3.9vw, 58px) !important;
+  line-height:.86 !important;
+  transform:translateY(-30px);
+}
+
+.hero-ampersand{
+  margin:8px 0 10px !important;
+  font-size:.56em !important;
+}
+
+@media (max-width:768px){
+  .hero-wedding-title{
+    font-size:clamp(46px, 9.8vw, 62px) !important;
+  }
+
+  .hero-couple-names{
+    font-size:clamp(38px, 8.5vw, 50px) !important;
+    transform:translateY(-24px);
+  }
+
+  .hero-ampersand{
+    margin:6px 0 8px !important;
+  }
+}
+
+@media (max-width:600px) and (orientation:portrait){
+  .hero-wedding-title{
+    font-size:clamp(42px, 12.5vw, 54px) !important;
+  }
+
+  .hero-couple-names{
+    font-size:clamp(32px, 9.8vw, 42px) !important;
+    line-height:.88 !important;
+    transform:translateY(-18px);
+  }
+
+  .hero-ampersand{
+    margin:4px 0 6px !important;
+    font-size:.54em !important;
+  }
+}
+
+@media (max-width:600px) and (orientation:portrait) and (max-height:680px){
+  .hero-wedding-title{
+    font-size:clamp(38px, 11.5vw, 48px) !important;
+  }
+
+  .hero-couple-names{
+    font-size:clamp(30px, 9vw, 38px) !important;
+    transform:translateY(-14px);
+  }
+}
+
