@@ -85,10 +85,11 @@
             aria-hidden="true"
           >
 
-          <p class="hero-date">DECEMBER 08, 2026</p>
-          <p class="hero-time">04:00 PM</p>
-
-          <p class="hero-venue-name">KEER Green Resort</p>
+          <!-- Event details were moved to Wedding Information.
+               Invisible placeholders preserve the approved hero text positioning/height. -->
+          <p class="hero-date hero-detail-placeholder" aria-hidden="true">&nbsp;</p>
+          <p class="hero-time hero-detail-placeholder" aria-hidden="true">&nbsp;</p>
+          <p class="hero-venue-name hero-detail-placeholder" aria-hidden="true">&nbsp;</p>
         </div>
       </div>
     </div>
@@ -123,6 +124,18 @@
 
     <div class="wedding-info-grid">
       <article class="wedding-info-card">
+        <span class="wedding-info-icon" aria-hidden="true">◇</span>
+        <h3>Date</h3>
+        <p>December 08, 2026</p>
+      </article>
+
+      <article class="wedding-info-card">
+        <span class="wedding-info-icon" aria-hidden="true">◷</span>
+        <h3>Time</h3>
+        <p>04:00 PM</p>
+      </article>
+
+      <article class="wedding-info-card">
         <span class="wedding-info-icon" aria-hidden="true">❦</span>
         <h3>Venue</h3>
         <p>KEER Green Resort</p>
@@ -133,19 +146,11 @@
         <h3>Address</h3>
         <p>Purok 7 Farm, Sta. Monica,<br>Floridablanca, Pampanga</p>
       </article>
-
-      <article class="wedding-info-card">
-        <span class="wedding-info-icon" aria-hidden="true">◷</span>
-        <h3>Time</h3>
-        <p>04:00 PM</p>
-      </article>
     </div>
   </section>
 
-  <!-- WEDDING DAY SCHEDULE -->
+  <!-- WEDDING COUNTDOWN -->
   <section class="schedule-section" id="wedding-schedule">
-    <h2 class="section-title">Wedding Day Schedule</h2>
-
     <div class="schedule-countdown" aria-label="Countdown to the wedding">
       <p class="countdown-heading">Until We Say “I Do”</p>
 
