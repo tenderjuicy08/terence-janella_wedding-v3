@@ -1677,11 +1677,11 @@ body::before{
 }
 
 .wedding-info-grid{
-  width:min(100%, 980px);
+  width:min(100%, 1100px);
   margin:0 auto;
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
-  gap:24px;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:20px;
 }
 
 .wedding-info-card{
