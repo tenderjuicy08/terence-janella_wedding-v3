@@ -3718,3 +3718,263 @@ body::after{
     }
   }
 }
+
+
+/* =========================================================
+   FINAL HERO PRENUP ARCH — MOBILE-SAFE VERSION
+   Uses a normal HTML/CSS layer instead of an SVG mask.
+   This is more reliable in Android Chrome and Messenger.
+   Keep this block at the VERY BOTTOM of style.css.
+   ========================================================= */
+
+/* Disable all previous hero photo/mask systems. */
+.hero-prenup-soft{
+  display:none !important;
+}
+
+.hero-card::before,
+.hero-card::after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Real arch container. */
+.hero-prenup-arch{
+  position:absolute !important;
+  top:0 !important;
+  left:50% !important;
+  bottom:0 !important;
+  z-index:0 !important;
+
+  width:min(54vw, 980px) !important;
+  height:100% !important;
+
+  transform:translateX(-50%) !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+
+  background:rgba(250,248,243,.28) !important;
+
+  /* Actual visible arched top. */
+  border-radius:50% 50% 3% 3% / 18% 18% 3% 3% !important;
+
+  /* Softly blend the arch into the floral background. */
+  box-shadow:
+    0 0 42px 24px rgba(247,242,233,.72),
+    0 0 80px 40px rgba(247,242,233,.34) !important;
+}
+
+/* Prenup photograph inside the arch. */
+.hero-prenup-photo{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+
+  background-image:url("images/hero-prenup.jpg") !important;
+  background-size:cover !important;
+  background-position:center 20% !important;
+  background-repeat:no-repeat !important;
+
+  opacity:.88 !important;
+}
+
+/* Soft edge veil. It does not remove the arch shape. */
+.hero-prenup-arch::after{
+  content:"" !important;
+  display:block !important;
+  position:absolute !important;
+  inset:0 !important;
+  z-index:1 !important;
+  pointer-events:none !important;
+  border-radius:inherit !important;
+
+  box-shadow:
+    inset 34px 0 42px -16px rgba(247,242,233,.72),
+    inset -34px 0 42px -16px rgba(247,242,233,.72),
+    inset 0 30px 34px -20px rgba(247,242,233,.42),
+    inset 0 -105px 85px -24px rgba(247,242,233,.82) !important;
+}
+
+/* Keep all invitation text above the prenup. */
+.hero-content,
+.hero-invitation{
+  position:relative !important;
+  z-index:3 !important;
+}
+
+/* PHONE / SMALL TABLET LANDSCAPE */
+@media (orientation:landscape) and (max-width:950px) and (max-height:600px){
+  .hero-prenup-arch{
+    width:min(58vw, 760px) !important;
+    top:0 !important;
+    bottom:0 !important;
+    height:100% !important;
+    border-radius:50% 50% 3% 3% / 22% 22% 3% 3% !important;
+  }
+
+  .hero-prenup-photo{
+    background-size:cover !important;
+    background-position:center 18% !important;
+  }
+}
+
+/* PHONE PORTRAIT */
+@media (max-width:600px) and (orientation:portrait){
+  .hero,
+  .hero-card{
+    min-height:100svh !important;
+  }
+
+  .hero-card{
+    overflow:hidden !important;
+    background:transparent !important;
+  }
+
+  .hero-prenup-arch{
+    /* Leave a small floral margin so the curved top is visible. */
+    width:calc(100% - 24px) !important;
+    max-width:none !important;
+    height:100% !important;
+    top:0 !important;
+    bottom:0 !important;
+
+    /* Taller version of the SAME arch shape. */
+    border-radius:50% 50% 2% 2% / 11% 11% 2% 2% !important;
+
+    box-shadow:
+      0 0 28px 16px rgba(247,242,233,.76),
+      0 0 56px 28px rgba(247,242,233,.32) !important;
+  }
+
+  .hero-prenup-photo{
+    background-size:cover !important;
+    background-position:center 18% !important;
+    opacity:.88 !important;
+  }
+
+  /* Portrait text uses the same landscape typography/spacing. */
+  .hero-content{
+    position:relative !important;
+    z-index:3 !important;
+    width:100% !important;
+    min-height:100svh !important;
+    height:auto !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:center !important;
+    padding:clamp(92px, 12svh, 118px) 18px 34px !important;
+    background:transparent !important;
+  }
+
+  .hero-invitation{
+    position:relative !important;
+    z-index:3 !important;
+    width:100% !important;
+    max-width:460px !important;
+    min-height:0 !important;
+    height:auto !important;
+    display:block !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    text-align:center !important;
+    transform:none !important;
+  }
+
+  .hero-family-message{
+    width:100% !important;
+    margin:0 0 17px !important;
+    padding-left:.52em !important;
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:12px !important;
+    font-weight:400 !important;
+    line-height:1.25 !important;
+    letter-spacing:4px !important;
+    text-align:center !important;
+    white-space:nowrap !important;
+  }
+
+  .hero-wedding-title{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    font-family:"Edwardian Script ITC", "Bickham Script Pro 3", "Brush Script MT", "Segoe Script", cursive !important;
+    font-size:72px !important;
+    font-weight:400 !important;
+    font-style:italic !important;
+    line-height:.92 !important;
+    text-align:center !important;
+  }
+
+  .hero-divider{
+    display:block !important;
+    width:min(275px, 60%) !important;
+    height:auto !important;
+    max-height:58px !important;
+    margin:30px auto 37px !important;
+    object-fit:contain !important;
+    mix-blend-mode:multiply !important;
+  }
+
+  .hero-couple-names{
+    width:100% !important;
+    margin:0 !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    gap:0 !important;
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:64px !important;
+    font-weight:400 !important;
+    line-height:.91 !important;
+    letter-spacing:-2px !important;
+    text-align:center !important;
+  }
+
+  .hero-couple-names > span{
+    display:block !important;
+    width:auto !important;
+    margin-left:auto !important;
+    margin-right:auto !important;
+    text-align:center !important;
+  }
+
+  .hero-ampersand{
+    margin:20px 0 22px !important;
+    font-family:Georgia, "Times New Roman", serif !important;
+    font-size:.68em !important;
+    font-weight:400 !important;
+    font-style:normal !important;
+    line-height:.72 !important;
+  }
+
+  .hero-name-date-divider{
+    display:block !important;
+    width:min(275px, 60%) !important;
+    height:auto !important;
+    max-height:58px !important;
+    margin:43px auto 22px !important;
+    object-fit:contain !important;
+    mix-blend-mode:multiply !important;
+  }
+}
+
+/* Very narrow phones: scale the WHOLE invitation only, preserving
+   the same landscape relationship between all text elements. */
+@media (max-width:380px) and (orientation:portrait){
+  .hero-invitation{
+    transform:scale(.92) !important;
+    transform-origin:top center !important;
+  }
+}
+
+@supports (height:100dvh){
+  @media (max-width:600px) and (orientation:portrait){
+    .hero,
+    .hero-card,
+    .hero-content{
+      min-height:100dvh !important;
+    }
+  }
+}
