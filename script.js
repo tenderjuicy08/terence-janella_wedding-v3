@@ -305,7 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
        same guest name from the same browser.
      --------------------------------------------------------- */
   const RSVP_WEB_APP_URL =
-    "https://script.google.com/macros/s/AKfycbxRIk0DrJFq5qsiW6W1FZ3l5twA-yBlFEcEwRqySse4JlSCvqFLo7fXmMBmpQ2k9Jr-7g/exec";
+    "https://script.google.com/macros/s/AKfycbzfm8ZLz4OD8_Z3GBtFToui0EomStSQJTSIXcbKhnG4TCt8pDIjtzIw3e3b-5mbLqAs/exec";
 
   const rsvpForm = document.getElementById("rsvpForm");
   const rsvpStatus = document.getElementById("rsvpStatus");
